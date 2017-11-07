@@ -1,8 +1,7 @@
 # YahooFinanceAPI
-Sample code for Yahoo Finance API
-
-Fork from https://github.com/natehefner/yahoostocks-java
-
+Sample code for Yahoo Finance API<br>
+Fork from https://github.com/natehefner/yahoostocks-java<br>
+<br>
 Entry Point: Call main method in YahooFinanceAPI.java
 
 Query Method:
@@ -18,5 +17,5 @@ Query Method:
 4. allStockCrawler():
   Query multiple stock with All Taiwan stock ID
 
-
+<br>
 by Ming 2017/11/7

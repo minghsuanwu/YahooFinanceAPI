@@ -1,5 +1,6 @@
 # YahooFinanceAPI
-Sample code for Yahoo Finance API\n
+Sample code for Yahoo Finance API
+
 Fork from https://github.com/natehefner/yahoostocks-java
 
 Entry Point: Call main method in YahooFinanceAPI.java

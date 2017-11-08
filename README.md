@@ -4,7 +4,7 @@ Reference from https://github.com/natehefner/yahoostocks-java<br>
 <br>
 Entry Point: Call main method in YahooFinanceAPI.java
 
-Query Method:
+Query stock information:
 1. singleStock(String stockID, String stockName): 
   Only query one stock information
 
@@ -16,6 +16,10 @@ Query Method:
   
 4. allStockCrawler():
   Query multiple stock with All Taiwan stock ID
+
+Currency exchange:
+1. FXQuotes():
+  Give currency symbols to get current exchange rate
 
 <br>
 by Ming 2017/11/7

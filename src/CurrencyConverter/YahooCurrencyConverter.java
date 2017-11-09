@@ -14,7 +14,8 @@ public class YahooCurrencyConverter implements CurrencyConverter{
     	CurrencyInfo ci = new CurrencyInfo(currencyFrom, currencyTo);
 //        HttpClient httpclient = HttpClientBuilder.create().build();
         HttpClient httpclient = HttpClients.createDefault();
-        String url = "http://quote.yahoo.com/d/quotes.csv?s=" + currencyFrom + currencyTo + "=X&f=l1&e=.csv";
+//        String url = "http://quote.yahoo.com/d/quotes.csv?s=" + currencyFrom + currencyTo + "=X&f=l1&e=.csv";
+        String url = "https://finance.yahoo.com/quote/"+currencyFrom+currencyTo+"%3DX?p="+currencyFrom+currencyTo+"%3DX";
         HttpGet request = new HttpGet(url);
         HttpResponse response = httpclient.execute(request);
         
@@ -29,7 +30,9 @@ public class YahooCurrencyConverter implements CurrencyConverter{
     public static void main(String[] args) {
     	YahooCurrencyConverter ycc = new YahooCurrencyConverter();
         try {
-            double current = ycc.convert("JPY", "TWD");
+        	String currencyFrom = "BTC";	// JPY, BTC, USD
+        	String currencyTo = "USD";
+            double current = ycc.convert(currencyFrom, currencyTo);
 //            System.out.println(current);
         }
         catch (Exception e) {

@@ -29,7 +29,8 @@ public class GoogleCurrencyConverter implements CurrencyConverter {
     	CurrencyInfo ci = new CurrencyInfo(currencyFrom, currencyTo);
 //        HttpClient httpclient = HttpClientBuilder.create().build();
         HttpClient httpclient = HttpClients.createDefault();
-        String url = "https://www.google.com/finance/converter?a=1&from="+currencyFrom+"&to="+currencyTo;
+//        String url = "https://www.google.com/finance/converter?a=1&from="+currencyFrom+"&to="+currencyTo;
+        String url = " https://finance.google.com/finance/converter?a=1&from="+currencyFrom+"&to="+currencyTo;
         HttpGet request = new HttpGet(url);
         HttpResponse response = httpclient.execute(request);
         
@@ -75,7 +76,9 @@ public class GoogleCurrencyConverter implements CurrencyConverter {
     public static void main(String[] args) {
         GoogleCurrencyConverter gcc = new GoogleCurrencyConverter();
         try {
-            double current = gcc.convert("JPY", "TWD");
+        	String currencyFrom = "JPY";
+        	String currencyTo = "TWD";
+            double current = gcc.convert(currencyFrom, currencyTo);
             System.out.println(current);
         }
         catch (Exception e) {

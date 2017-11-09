@@ -74,11 +74,37 @@ public class YahooFinanceAPI {
 		return stockMap;
 	}
 	
-	public void FXQuotes() {
+	/**
+	 * Check the list of currency symbol in class FxSymbols
+	 * @param FxSymbols
+	 */
+	public void FXQuotesByFxSymbol(String FxSymbol) {
 		try {
-			FxQuote usdeur = YahooFinance.getFx(FxSymbols.USDEUR);
-			FxQuote usdgbp = YahooFinance.getFx("USDGBP=X");
+			FxQuote usdeur = YahooFinance.getFx(FxSymbol);
 			System.out.println(usdeur);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Query currency exchange rate by giving two currency symbol
+	 * Check currency symbol from http://www.xe.com/symbols.php
+	 * @param currencyFrom
+	 * @param currencyTo
+	 */
+	public void FXQuotes(String currencyFrom, String currencyTo) {
+		try {			
+			FxQuote usdgbp = YahooFinance.getFx(currencyFrom.toUpperCase()+currencyTo.toUpperCase()+"=X");
+			System.out.println(usdgbp);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void FXQuotes(String symbol) {
+		try {			
+			FxQuote usdgbp = YahooFinance.getFx(symbol);
 			System.out.println(usdgbp);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -185,16 +211,23 @@ public class YahooFinanceAPI {
 	
 	public static void main(String[] args) {
 		YahooFinanceAPI testYahooFinance = new YahooFinanceAPI();
-		String stockID = "2330.TW";
-		String stockName = "";
+//		String stockID = "2330.TW";
+//		String stockName = "";
 		// Query single stock
-		testYahooFinance.singleStock(stockID, stockName);
+//		testYahooFinance.singleStock(stockID,/ stockName);
 		
 		// Query multiple stock
-		String[] symbols = new String[] {"INTC", "BABA", "TSLA", "AIR.PA", "YHOO"};
-		testYahooFinance.multipleStock(symbols);
+//		String[] symbols = new String[] {"INTC", "BABA", "TSLA", "AIR.PA", "YHOO"};
+//		testYahooFinance.mul/tipleStock(symbols);
 		
-//		testYahooFinance.FXQuotes();
+		// Currency exchange
+		String FxSymbol = FxSymbols.USDEUR;
+		testYahooFinance.FXQuotesByFxSymbol(FxSymbol);
+		String symbol = "CNYTWD=X";
+		testYahooFinance.FXQuotes(symbol);
+//		String currencyFrom = "rmb";
+//		String currencyTo = "usd";
+//		testYahooFinance.FXQuotes(currencyFrom, currencyTo);
 		
 		// Query stock information through the web request and parse the feedback JSON 
 //		testYahooFinance.callYahooFinanceAPI();

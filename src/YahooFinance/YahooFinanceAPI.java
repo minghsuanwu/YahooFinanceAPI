@@ -211,20 +211,22 @@ public class YahooFinanceAPI {
 	
 	public static void main(String[] args) {
 		YahooFinanceAPI testYahooFinance = new YahooFinanceAPI();
+		// Query single stock
 //		String stockID = "2330.TW";
 //		String stockName = "";
-		// Query single stock
-//		testYahooFinance.singleStock(stockID,/ stockName);
+//		testYahooFinance.singleStock(stockID, stockName);
 		
 		// Query multiple stock
 //		String[] symbols = new String[] {"INTC", "BABA", "TSLA", "AIR.PA", "YHOO"};
-//		testYahooFinance.mul/tipleStock(symbols);
+//		testYahooFinance.multipleStock(symbols);
 		
 		// Currency exchange
-		String FxSymbol = FxSymbols.USDEUR;
+		String FxSymbol = CurSymbols.USDEUR;
+		FxSymbol = "USDTWD=X";
 		testYahooFinance.FXQuotesByFxSymbol(FxSymbol);
-		String symbol = "CNYTWD=X";
+		String symbol = CurSymbols.CNYTWD;
 		testYahooFinance.FXQuotes(symbol);
+		
 //		String currencyFrom = "rmb";
 //		String currencyTo = "usd";
 //		testYahooFinance.FXQuotes(currencyFrom, currencyTo);

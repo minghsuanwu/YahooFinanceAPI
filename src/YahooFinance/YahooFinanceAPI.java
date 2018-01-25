@@ -80,8 +80,8 @@ public class YahooFinanceAPI {
 	 */
 	public void FXQuotesByFxSymbol(String FxSymbol) {
 		try {
-			FxQuote usdeur = YahooFinance.getFx(FxSymbol);
-			System.out.println(usdeur);
+			FxQuote fq = YahooFinance.getFx(FxSymbol);
+			System.out.println(fq);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -96,15 +96,6 @@ public class YahooFinanceAPI {
 	public void FXQuotes(String currencyFrom, String currencyTo) {
 		try {			
 			FxQuote usdgbp = YahooFinance.getFx(currencyFrom.toUpperCase()+currencyTo.toUpperCase()+"=X");
-			System.out.println(usdgbp);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void FXQuotes(String symbol) {
-		try {			
-			FxQuote usdgbp = YahooFinance.getFx(symbol);
 			System.out.println(usdgbp);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -221,11 +212,10 @@ public class YahooFinanceAPI {
 //		testYahooFinance.multipleStock(symbols);
 		
 		// Currency exchange
-		String FxSymbol = CurSymbols.USDEUR;
-		FxSymbol = "USDTWD=X";
+		String FxSymbol = CurSymbols.USDTWD;
 		testYahooFinance.FXQuotesByFxSymbol(FxSymbol);
-		String symbol = CurSymbols.CNYTWD;
-		testYahooFinance.FXQuotes(symbol);
+		FxSymbol = CurSymbols.CNYTWD;
+		testYahooFinance.FXQuotesByFxSymbol(FxSymbol);
 		
 //		String currencyFrom = "rmb";
 //		String currencyTo = "usd";
@@ -235,6 +225,6 @@ public class YahooFinanceAPI {
 //		testYahooFinance.callYahooFinanceAPI();
 		
 		// Query multiple stock with All Taiwan stock ID
-//		testYahooFinance.allStockCrawler();
+		testYahooFinance.allStockCrawler();
 	}
 }
